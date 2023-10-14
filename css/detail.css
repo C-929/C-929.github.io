@@ -1,0 +1,203 @@
+h1 {
+  margin-bottom: 20px;
+}
+
+h2 {
+  font-size: 16px;
+  line-height: 16px;
+  margin-bottom: 20px;
+}
+
+p{
+  text-indent: 2em;
+  /* 段首缩进两字符 */
+}
+
+/* 主体部分 */
+.main {
+  max-width: 1500px; /* 最大宽度为1500px */
+  padding: 60px 60px 0;
+  margin: 0 auto; /* 水平居中显示 */
+}
+/* 卡片化样式设计，增加每个模块的区分度 */
+.card {
+  padding: 20px;
+  margin: 0 0 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.card::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #ccccff11;
+  background: radial-gradient(ellipse at center, #5fbdf795, transparent 60%); /* 径向渐变 */
+  filter: blur(160px); /* 模糊滤镜 */
+  z-index: -1;
+}
+/* 人物简介 */
+/* 人物图片部分 */
+.details .fl_img {
+  width: 300px;
+  float: left;
+}
+
+.details .fl_img .img_container img {
+  width: 100%;
+}
+
+.details .fl_img .img_title {
+  margin: 8px auto;
+  font-size: 13px;
+  color: #9b9b9b;
+  text-align: center;
+}
+/* 人物基本信息部分 */
+.details .fl_list {
+  float: left;
+}
+
+.details .fl_list ul {
+  padding: 0 20px 10px;
+  line-height: 45px;
+}
+
+.details .fl_list .label,
+.details .fl_list .value {
+  font-size: 14px;
+}
+
+.details .fl_list .label {
+  color: #666;
+}
+
+.details .fl_list .value {
+  color: #111;
+}
+/* 关注部分 */
+.details .fl_list .attention {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 0 20px;
+}
+
+.details .fl_list .attention .attention_btn {
+  color: #0C7526;
+  font-size: 13px;
+  padding: 4px 12px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 3px;
+  background: #EDF4EC;
+}
+
+.details .fl_list .attention .attention_btn:hover {
+  background-color: #e5efe4;
+}
+
+.details .fl_list .attention .attention_count {
+  color: #818181;
+  font-size: 12px;
+}
+/* 简介具体内容 */
+.profile {
+  margin-top: 20px;
+}
+
+.profile .pro_content p {
+  color: #2d2d2d;
+  font-size: 16px;
+}
+/* 表格部分 演唱会记录与音乐节记录 */
+.shows_table .tables table {
+  width:100%;
+  max-width:1200px;
+  margin:0 auto;
+}
+
+.shows_table .tables th{
+  height:32px;
+  border-top:2px solid #e6e6e6;
+  border-bottom:1px solid #e6e6e6;
+  background-color: #f0f9e844;
+}
+
+.shows_table .tables td {
+  height:32px;
+  border-bottom:1px solid #e6e6e6;
+  text-align: center;
+}
+/* 人物评析部分 */
+#reviews {
+  overflow: hidden;
+  color: #2d2d2d;
+}
+
+#reviews_main {
+  padding: 0 20px;
+}
+
+.review {
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #e4e4e5b3;
+}
+
+.review_img {
+  float: left;
+  width: 60px;
+  margin: 8px 10px 0 0;
+}
+
+.review_img img {
+  width: 60px;
+}
+
+.review_container {
+  font-size: 14px;
+}
+
+.review_container .information {
+  padding: 3px 0;
+  font-size: 13px;
+}
+
+.review_container .information span {
+  color: #727374;
+}
+/* 最后一个评论不要边框及边距 */
+#reviews .last {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+/* 为美观考虑，第一段不要缩进 */
+.review_content .p_first{
+  text-indent: 0;
+}
+/* 评论文本不可见 */
+.review_content .content {
+  display: none;
+}
+/* 展示评论文本 */
+.review_content .show {
+  display: block;
+}
+/* 展开/收起开关 */
+.review_content .change {
+  color: #00BB30;
+  cursor: pointer;
+  float: right;
+}
+/* 不可显示箭头 */
+.review_content .change i{
+  display: none;
+}
+/* 显示箭头 注意不换行，是行内元素 */
+.review_content .change .i_show{
+  display: inline;
+}

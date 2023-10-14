@@ -1,0 +1,290 @@
+/* 主体内容 */
+.main {
+  max-width: 1200px;
+  padding: 60px 60px 0;
+  margin: 0 auto;
+}
+
+.card {
+  padding: 20px;
+  margin: 0 0 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.card::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #ccccff11;
+  background: radial-gradient(ellipse at center, #5fbdf795, transparent 60%);
+  filter: blur(160px);
+  z-index: -1;
+}
+
+#songDemo h2,
+#columns h2,
+#top5 h2,
+#album h2,
+#singer h2 {
+  margin: 0 0 20px;
+}
+
+/* 试听区 */
+#songDemo .slideshow-container {
+  width: 700px;
+  height: 400px;
+  position: relative;
+  margin: 0 auto;
+  /* 水平居中容器 */
+}
+
+#songDemo .slideshow-container .mySlides {
+  display: none;
+  /* 初始状态下隐藏所有幻灯片 */
+  width: 100%;
+  height: 100%;
+}
+
+#songDemo .slideshow-container .mySlides img {
+  width: 100%;
+  height: 100%;
+  border-radius: 16px;
+}
+
+#song {
+  width: 100%;
+  height: 30px;
+  border-radius: 15px;
+  position: absolute;
+  top: 370px;
+}
+
+/* End 试听区 */
+
+
+/* 精选栏目 */
+/* 栏目导航栏 */
+.leftcolumn {
+  width: 70%;
+  float: left;
+}
+
+#columns {
+  position: relative;
+}
+
+.col_nav {
+  height: 30px;
+  position: absolute;
+  top: 2px;
+  left: 120px;
+}
+
+.col_nav ul {
+  width: 200px;
+  height: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.col_nav ul li {
+  border-radius: 8px;
+  line-height: 30px;
+  list-style: none;
+  padding: 0px 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.col_nav ul li:hover,
+.col_focus {
+  background-color: #1ab6ef87;
+  color: rgb(250, 253, 254);
+}
+
+.col_nav ul li:active {
+  background: #d7d9dbcd;
+  color: #60666b;
+}
+
+/* End 栏目导航栏 */
+
+.item .col_container {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.item {
+  display: none;
+}
+
+.show {
+  display: block;
+}
+
+.left_img {
+  width: 250px;
+  border-radius: 8px;
+}
+
+.left_img img {
+  width: 100%;
+  height: 250px;
+  border-radius: 8px 8px 8px 8px;
+}
+
+.left_img a {
+  font-size: 20px;
+  line-height: 20px;
+}
+
+.mid_img a,
+.right_img a {
+  font-size: 12px;
+  line-height: 12px;
+}
+
+.left_img a:hover,
+.mid_img a:hover,
+.right_img a:hover {
+  color: #0099cc;
+}
+
+.left_img a,
+.mid_img a,
+.right_img a,
+.left_img a:active,
+.mid_img a:active,
+.right_img a:active {
+  color: #031c30;
+}
+
+.mid_img,
+.right_img {
+  width: 115px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.mid_img img,
+.right_img img {
+  width: 115px;
+  height: 115px;
+  border-radius: 8px;
+}
+
+/* End 精选栏目 */
+
+/* 音乐排行榜 */
+.rightcolumn {
+  float: right;
+  width: 28%;
+}
+
+.music_ol {
+  width: 100%;
+}
+
+.music_ol ol li {
+  white-space: nowrap;
+  /* 防止文字换行 */
+  overflow: hidden;
+  /* 隐藏超出容器部分的内容 */
+  text-overflow: ellipsis;
+  /* 在超出部分显示省略号作为提示 */
+  list-style-type: decimal;
+  list-style-position: inside;
+  border-bottom: 1px solid #67a6ff2e;
+  padding: 10px 0;
+}
+
+.music_ol ol li.first {
+  padding: 0 0 10px;
+}
+
+.music_ol ol li.last {
+  border: 0;
+  padding: 10px 0 0;
+}
+
+.music_ol ol li::marker {
+  color: #67a6ff;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.music_ol ol li a {
+  color:#01192c;
+  font-size: 16px;
+}
+
+.music_ol ol li div a {
+  font-size: 12px;
+  color: #87878b;
+  margin: 20px;
+}
+
+/* End 音乐排行榜 */
+
+/* 优质专辑与实力音乐人 */
+.sec_content {
+  width: 100%;
+}
+
+.sec_content ul {
+  list-style-type: none;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.sec_content img {
+  width: 150px;
+  height: 150px;
+  border-radius: 8px;
+}
+
+.sec_content a {
+  font-size: 15px;
+  color: #031c30;
+}
+
+.sec_content a:hover {
+  color: coral;
+}
+
+/* End 优质专辑与实力音乐人 */
+
+/* End 主体内容 */
+
+/* 响应式样式设计 */
+/* 屏幕小于929px，左右栏目的占比需更改 */
+@media screen and (max-width:929px) {
+  .leftcolumn {
+    width: 76%;
+  }
+
+  .rightcolumn {
+    width: 22%;
+  }
+}
+
+/* 屏幕小于850px，主体部分固定为850px */
+@media screen and (max-width:850px) {
+
+  body,
+  .main {
+    width: 850px;
+    overflow-x: auto;
+  }
+}
+
+/* End 响应式样式设计 */

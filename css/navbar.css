@@ -1,0 +1,219 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial;
+}
+
+body {
+    min-height: 100vh;
+    margin: 0 auto;
+    background-color: #ccccff11;
+    /* 渐变背景无效时显示这个颜色 */
+    background: radial-gradient(at center, transparent 50%, #ccccff62);
+    background: -webkit-radial-gradient(at center, transparent 50%, #ccccff62);  
+    background: -moz-radial-gradient(at center, transparent 50%, #ccccff62);  
+    background: -o-radial-gradient(at center, transparent 50%, #ccccff62);  
+    background: -ms-radial-gradient(at center, transparent 50%, #ccccff62);
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* 清除浮动 通用 */
+.clearfix::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+/* Header */
+header {
+    pointer-events: auto;
+}
+
+.navbar {
+    width: 100%;
+    height: 60px;
+    padding: 0 30px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    backdrop-filter: blur(10px);
+    /* 对元素背后的所有内容（包括其他元素和背景图像）进行模糊处理，模糊半径为15像素 */
+}
+
+/* logo */
+.navbar .logo a {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #444445;
+}
+
+/* 搜索栏 */
+.navbar .search {
+    position: relative;
+    /* 子绝父相 */
+    width: 20rem;
+    height: 2rem;
+    background-color: #fff;
+    border-radius: 1rem;
+    /* 设为搜索框高度的一半，半圆边 */
+    transition: 0.6s;
+}
+
+.navbar #searchsvg {
+    height: 20px;
+    position: absolute;
+    top: 50%;
+    /* 下移父元素高度的50% */
+    left: 0.5rem;
+    transform: translateY(-50%);
+    /* 上移该元素的50%。与绝对定位的上移配合使用可使元素垂直居中 */
+}
+
+.navbar #searchtext {
+    max-width: 90%;
+    width: calc(20rem - 50px);
+    /* 使宽度等于两者差值 */
+    height: 1.75rem;
+    color: #5f5f60;
+    border: 0;
+    outline: none;
+    /* 去掉点中后的特殊样式 */
+    background: transparent;
+    border-radius: 0.375rem;
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    transform: translateY(-50%);
+}
+
+/* 设置搜索栏提示文字的颜色，考虑兼容性 */
+.navbar #searchtext::-webkit-input-placeholder,
+.navbar #searchtext::-moz-placeholder,
+.navbar #searchtext::-moz-placeholder,
+.navbar #searchtext::-ms-input-placeholder {
+    /* WebKit, Blink, Edge */
+    /* Mozilla Firefox 4 to 18 */
+    /* Mozilla Firefox 19+ */
+    /* Internet Explorer 10-11 */
+    color: #c0c0c0;
+}
+
+/* 导航菜单项 */
+.navbar .menulist {
+    display: flex;
+    gap: 2rem;
+    /* flex容器中的元素的间距 */
+}
+
+.navbar .menulist a {
+    color: #29292a;
+}
+
+.navbar .menulist a:hover,
+.dropdown_list li a:hover {
+    color: #f2a32b;
+}
+
+/* 导航菜单按钮 */
+.navbar .menubtn {
+    cursor: pointer;
+    /* 鼠标样式为上指的小手 */
+    display: none;
+    /* 隐藏 */
+}
+
+/* 下拉导航列表 */
+.dropdown_list {
+    display: none;
+    /* 隐藏 */
+    height: 0;
+    /* 未显示时高度为0 */
+    width: 200px;
+    position: absolute;
+    right: 0;
+    top: 60px;
+    background-color: rgba(2, 75, 193, 0.1);
+    backdrop-filter: blur(10px);
+    /* 对元素背后的所有内容（包括其他元素和背景图像）进行模糊处理，模糊半径为15像素 */
+    border-radius: 0 0 10px 10px;
+    overflow: hidden;
+    transition: height 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    /* 高度变化的过渡效果。cubic-bezier为变化趋势，可登陆网站查看 */
+}
+
+.dropdown_list.open {
+    height: auto;
+    /* 导航列表被打开后的高度 */
+}
+
+.dropdown_list li {
+    padding: 0.5rem;
+    text-align: center;
+    gap: 0.5rem;
+}
+
+.dropdown_list li a {
+    color: #444449;
+    font-size: 1.1rem;
+}
+
+/* End 下拉菜单 */
+
+/* 响应式样式设计 */
+
+/* 缩到780px后导航栏“缩”成一个“汉堡”按钮，单击按钮列表弹出 */
+@media only screen and (max-width:860px) {
+    .navbar .menulist {
+        display: none;
+    }
+
+    .navbar .menubtn {
+        display: block;
+    }
+
+    .dropdown_list {
+        display: block;
+    }
+}
+
+/* 缩到600px后，搜索栏缩小到0.95倍，导航下拉列表的宽度设为自动调整 */
+@media only screen and (max-width:600px) {
+    .navbar .search {
+        transform: scale(0.95);
+    }
+
+    .dropdown_list {
+        left: 4rem;
+        right: 4rem;
+        width: auto;
+    }
+}
+
+/* 缩到500px后，搜索栏缩小到0.8倍 */
+@media only screen and (max-width:500px) {
+    .navbar .search {
+        transform: scale(0.8);
+    }
+}
+
+/* End 响应式样式设计 */
+
+/* 滚动页面导航栏固定 */
+.fixed {
+    position: fixed;
+    /* 设为固定定位。导航栏相对浏览器的位置是确定的，不随页面的滚动而移动 */
+    top: 0;
+    left: 0;
+    right: 0;
+    /* 把left和right均设为0才能水平居中(上面已经设置过margin:auto了) */
+    z-index: 1000;
+}

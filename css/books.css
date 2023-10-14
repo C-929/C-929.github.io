@@ -1,0 +1,311 @@
+* {margin: 0;padding: 0;list-style: none;}
+body{ color: #220a05;  background: radial-gradient(at center, transparent 50%, #ccccff62);
+    font-weight: normal; display: flex;box-sizing: border-box;}
+img{border: none;}
+a{text-decoration: none; outline:none;  color: #4d1d12;}
+a:hover{color: #ee8040;}
+
+@media screen and (max-width:1500px){
+    body,
+    .main{
+        width: 1500px;
+        overflow: auto;
+    }
+}
+
+input{outline: none; border: none; background: none;font-family:"Microsoft Yahei", arial,sans-serif;}
+h1,h2,h3,h4,h5,p{font-family:"Microsoft Yahei", arial,sans-serif; font-size: 8px;}
+em,h2,h1,h3,i{font-style: normal; font-weight: normal;}
+em,span{display: inline-block;}
+
+.hobbies {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+    perspective: 340px;
+}
+.hobbies_bgc {
+    height: 750px;
+    width: 100%;
+}
+.hobbies_tit {
+    position: absolute;
+    color: #000;
+    top: 280px;
+    left: 0;
+    right: 0;
+    font-size: 32px;
+    font-weight: 550;
+    width: 800px;
+    margin: auto;
+    text-align: center;
+    text-shadow: 1px 1px 1px #fff ,-1px -1px 1px #00000047;
+    font-family: '楷体';
+}
+.titles {
+    position: absolute;
+    color: #000;
+    top: 350px;
+    left: 0;
+    right: 0;
+    font-size: 32px;
+    font-weight: 550;
+    width: 800px;
+    margin: auto;
+    text-align: center;
+    text-shadow: 1px 1px 1px #fff ,-1px -1px 1px #00000047;
+    font-family: '楷体';
+}
+.pubBook{overflow: hidden;}
+.conBigTitle{
+    float: left;
+    margin-left: 100px;
+    width: 1300px; 
+    padding: 44px 0 30px 0; 
+}
+.conBigTitle h2{
+    margin: 0 0 20px;
+    font-size: 1.5em;
+    font-weight: 700;
+    height: 20px;
+}
+.show{
+    width:700px; 
+    height: 600px; 
+    background: rgb(238,238,238); 
+    position: relative; 
+    float: left;
+    margin-left: 100px;
+    box-shadow: 0 0 20px rgba(5, 143, 228, 0.293);
+}
+.a {
+    position: relative;
+    width: 700px;
+    display: flex;
+    justify-content: space-evenly;
+}
+.b {
+    width: 500px;
+    height: 600px;
+    transition: .4s;
+    background-size: cover;
+}
+.book-box {
+    width: 80px;
+    height: 600px;
+    display: flex;
+    right: 0;
+    /* 纵向布局 */
+    flex-direction: column;
+    justify-content: space-between;
+}
+.bookimg {
+    position: relative;
+    width: 80px;
+    height: 100px;
+    right: 0;
+    transition: .5s;
+    /* overflow: hidden; */
+}
+.bookimg img {
+    position: absolute;
+    width: 80px;
+    /* 小图片上移 */
+    /* transform: translate(0, -50px); */
+    transition: .5s;
+    right: 0;
+}
+.bookimg.dd {
+    opacity: 0;
+    right: 250px;
+}
+.bookimg:hover img {
+    opacity: 0;
+    right: 250px;
+}
+.shelf-container{
+    position: relative;
+    float: left;
+    margin-left: 150px;
+    width: 450px;
+    height: 600px;
+}
+.shelf-background-1{
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #eee;
+    width: 100%;
+    height: 150px;
+    border-left: solid 20px #ccc;
+    border-bottom: solid 20px #ddd;
+    z-index: 2;
+}
+.item-container-1{
+    padding: 5px 25px;
+    height: 130px;
+    overflow: hidden;
+}
+.item{
+    width: 85px;
+    height: 100px;
+    float: left;
+    margin-left: 15px;
+    position: relative;
+}
+.item a .front{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    transition: all 0.5s ease-in-out;
+    z-index: 10;
+    backface-visibility: hidden;
+
+}
+.item a .front p{
+    font-weight: 700;
+    font-family:楷体;
+    text-align: center;
+}
+.item:hover a .front{
+    transform: rotateY(180deg);
+}
+
+.item a .back{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    transition: all 0.5s ease-in-out;
+    z-index: 10;
+    backface-visibility: hidden;
+    transform: rotateY(180deg);
+    color: #000;
+    padding: 1px;
+    font-size: 10px; 
+}
+.item:hover a .back{
+    transform: rotateY(360deg);
+}
+.shelf-background-2{
+    position: absolute;
+    top: 150px;
+    left: 0;
+    background-color: #eee;
+    width: 100%;
+    height: 150px;
+    border-left: solid 20px #ccc;
+    border-bottom: solid 20px #ddd;
+    z-index: 3;
+}
+.item-container-2{
+    padding: 25px 25px;
+    height: 130px;
+}
+.shelf-background-3{
+    position: absolute;
+    top: 300px;
+    left: 0;
+    background-color: #eee;
+    width: 100%;
+    height: 150px;
+    border-left: solid 20px #ccc;
+    border-bottom: solid 20px #ddd;
+    z-index: 3;
+}
+.item-container-3{
+    padding: 45px 25px;
+    height: 130px;
+}
+.shelf-background-4{
+    position: absolute;
+    top: 450px;
+    left: 0;
+    background-color: #eee;
+    width: 100%;
+    height: 150px;
+    border-left: solid 20px #ccc;
+    border-bottom: solid 20px #ddd;
+    z-index: 3;
+}
+.item-container-4{
+    padding: 65px 25px;
+    height: 130px;
+}
+#back{
+    font-size: 10%;
+    color: #f13012c0;
+    font-family: 楷体;
+    font-weight: 700;
+}
+/* */
+.sel_Cir{
+    position: relative;
+    top: 30px;
+    left: 150px;
+    width: 1250px;
+    height: 120px;
+    margin-top: 30px;
+    font:12px/20px "Microsoft Yahei", arial,sans-serif; 
+    background: #eee; 
+    overflow: hidden; 
+    box-shadow:0 0 20px rgba(5, 143, 228, 0.293);
+    text-align: center;
+}
+.sel h2{
+    float: left;
+    margin-left: 100px;
+    margin-top: 30px;
+    width: 1250px;
+    height: 30px;
+    font-size: 1.5em;
+    font-weight: 700;
+}
+.author{
+    float: left;
+    width: 250px;
+    height: 100%;
+    border: 1px solid black;
+    font-size: 15px;
+    font-family: 楷体;
+}
+.author dt{
+    font-size: 17px;
+    font-weight: 700;
+}
+.author dd,
+.author dt{
+    line-height: 30px;
+    height: 30px;
+    border: 0px 1px solid black;
+}
+.bott{
+    width: 100%;
+    height: 60px;
+}
+.top-main{
+    float: left;
+    position: relative;
+    margin-left: 100px;
+    margin-top: 100px;
+    width: 1300px;
+    height: 420px;
+    /* background-color: #ccc; */
+}
+.top-main h2{
+    font-size: 1.5em;
+    font-weight: 700;
+    margin: 0 0 20px;
+}
+.vid{
+    width: 800px;
+    height: 390px;
+}
+.vid video{
+    position: absolute;
+    top: 40px;
+    left: 50px;
+    width: 800px;
+    height: 390px;
+}

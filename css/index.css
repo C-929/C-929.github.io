@@ -1,0 +1,304 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+  scroll-behavior: smooth;
+  /* 按下Explore，平滑地滚动到本页面的指定位置。另一属性值auto则是直接跳到指定位置 */
+}
+
+body {
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
+  background: linear-gradient(#e2eefe, #fcfcfc);
+}
+
+/* 首页主要部分 */
+.homePage {
+  position: relative;
+  /* 层级，不然文字下移时不会被覆盖 */
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  /* 按列的方向 */
+  overflow: hidden;
+}
+
+/* 欢迎部分 */
+#welcome {
+  position: absolute;
+  top: 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 渐变立方体 */
+.bgcube {
+  transform: skewY(-25deg);
+  /* 在Y轴方向上倾斜-20deg */
+  animation: animate 5s linear infinite;
+  /* 以5s为周期，匀速无限次播放 */
+  transition: 0.2s;
+  /* 过渡，0.2s */
+}
+
+/* 色相旋转滤镜 */
+@keyframes animate {
+  0% {
+    filter: hue-rotate(200deg);
+  }
+
+  100% {
+    filter: hue-rotate(360deg);
+  }
+}
+
+/* 子绝父相 */
+.bgcube .cube {
+  position: relative;
+}
+
+/* 都是相对定位，以中间一行方块为基准 */
+.bgcube .cube:nth-child(2) {
+  top: -90px;
+  left: -40px;
+}
+
+.bgcube .cube:nth-child(3) {
+  top: 50px;
+  left: -45px;
+}
+
+/* 构建同一行的方块 */
+.bgcube .cube div {
+  position: absolute;
+  transform: translate(calc(-85px*var(--x)), calc(-40px*var(--y)));
+  /* 使用calc()函数计算平移量，使用var()函数来获取自定义属性的值。 */
+}
+
+.bgcube .cube div span {
+  position: relative;
+  display: inline-block;
+  /* 使可改变大小 */
+  width: 45px;
+  height: 50px;
+  background: rgba(204, 204, 204, 0.1);
+  transition: 1s;
+}
+
+.bgcube .cube div span:hover {
+  transition: 0s;
+  background: #c28ffc;
+}
+
+/* 前侧面 */
+.bgcube .cube div span::before {
+  content: '';
+  position: absolute;
+  top: -20px;
+  left: -40px;
+  width: 40px;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  transform: skewY(45deg);
+  transition: 1s;
+}
+
+/* 设置鼠标悬停在前侧面时的颜色 */
+.bgcube .cube div span:hover::before {
+  background: #dcc3f9;
+}
+
+/* 上侧面 */
+.bgcube .cube div span::after {
+  content: '';
+  position: absolute;
+  top: -40px;
+  left: -20px;
+  width: 100%;
+  height: 40px;
+  background: rgba(255, 204, 255, 0.1);
+  transform: skewX(45deg);
+  transition: 1s;
+}
+
+/* 设置鼠标悬停在上侧面时的颜色 */
+.bgcube .cube div span:hover::after {
+  background: #d5b2fd;
+}
+
+/* 欢迎语 */
+#welcome h2 {
+  position: absolute;
+  /* 提高层级，防止被方块覆盖 */
+  text-align: center;
+  font-size: 80px;
+  line-height: 1.1;
+  pointer-events: none;
+  /* 使该元素不会响应鼠标事件，不会影响方块获取鼠标焦点 */
+  transition: 0.5s;
+}
+
+/* 该部分底部的渐变 */
+.homePage::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 20%;
+  background: linear-gradient(to top, #b2d5fd, transparent);
+  z-index: 10;
+}
+
+/* 探索按钮 */
+#btn {
+  position: absolute;
+  top: 60%;
+  padding: 0.3em 1em;
+  border-radius: 40px;
+  background: #fff;
+  color: #2b1055;
+  font-size: 25px;
+  transition:0.2s;
+}
+
+/* 首页子部分 */
+#sec {
+  width: 100%;
+  min-height: 100vh;
+  background: linear-gradient(#b2d5fd, transparent);
+  display: flex;
+  align-items: center;
+}
+
+#sec .subarea {
+  width: 100%;
+  height: 100%;
+}
+
+#sec .subarea h2 {
+  font-size: 50px;
+  padding: 40px 80px;
+  color: #000;
+}
+
+#sec .subarea .sub_box {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 0 40px 100px;
+}
+
+/* 开始处理图片容器里的内容 */
+.box {
+  position: relative;
+  /* 子绝父相 */
+  width: 240px;
+  height: 160px;
+  background: #060c21;
+  border-radius: 12px;
+  /* 表示状态改变将在0.5秒内平滑过渡，而不是立即改变 */
+  transition: 0.5s;
+}
+
+/* 悬停时伸长至210px */
+.box:hover {
+  height: 210px;
+}
+
+/* 开始处理图片 */
+.box .imgBx {
+  width: 100%;
+  height: 100%;
+  padding: 15px;
+}
+
+.box .imgBx a {
+  display: inline-block;
+  /* 使可设置大小 */
+  width: 216px;
+  height: 136px;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.box .imgBx a img {
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  transition: 0.5s;
+}
+
+/* 开始处理渐变色模糊边框 */
+.box::before {
+  /* 模糊效果 */
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: transparent;
+  /* 不兼容就透明 */
+  z-index: -1;
+  filter: blur(30px);
+  /* 模糊滤镜。使得元素的内容看起来像通过40像素的模糊半径进行模糊处理一样 */
+}
+
+.box::before {
+  background: linear-gradient(to right bottom, #99e40dc0, #03244fad, #a2ebfa);
+}
+
+.box:nth-child(2)::before {
+  background: linear-gradient(to right bottom, #ff005e, #f9fafb, #fbff00);
+}
+
+.box:nth-child(3)::before {
+  background: linear-gradient(to right bottom, #7122fa, #b2c2f0, #2196f3);
+}
+
+/* 开始处理文字部分 */
+.box .content {
+  position: absolute;
+  bottom: 7px;
+  left: 10px;
+  right: 10px;
+  height: 50px;
+  background: linear-gradient(to top, #060c21, transparent);
+  text-align: center;
+  opacity: 0;
+  transition: 0.5s;
+}
+
+/* 盒子伸长后显示文字 */
+.box:hover .content {
+  opacity: 1;
+}
+
+.box .content a {
+  font-size: 21px;
+  color: #fff;
+}
+
+.box .content span {
+  font-size: 14px;
+  color: #fff;
+  letter-spacing: 2px;
+}
+
+/* 媒体查询 响应式 */
+@media only screen and (max-width:600px) {
+  #welcome h2 {
+    font-size:60px;
+  }
+  #btn {
+    font-size: 20px;
+  }
+}

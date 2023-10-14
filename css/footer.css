@@ -1,0 +1,24 @@
+.footer-content {
+    width: 100%;
+    padding:20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap:20px;
+}
+
+.footer-content .footer-text {
+    font-size:12px;
+    line-height: 24px;
+    color:#999;
+}
+
+/* 鼠标悬停时QQ显示蓝色 */
+#qq:hover svg path {
+    fill:#68A5E1;
+}
+/* 鼠标悬停时微信显示绿色 */
+#vx:hover svg path {
+    fill:#28c445;
+}

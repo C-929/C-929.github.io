@@ -1,0 +1,409 @@
+/* 主体部分 */
+.main {
+    max-width: 1500px;
+    padding: 60px 60px 0;
+    margin: 0 auto;
+}
+
+.card {
+    padding: 20px;
+    margin: 0 0 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+.card::before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #ccccff11;
+    background: radial-gradient(ellipse at center, #5fbdf795, transparent 60%);
+    filter: blur(160px);
+    z-index: -1;
+}
+
+#movieVideo h2,
+#hotMovie h2,
+#paging h2,
+#reviews h2,
+#unpop h2 {
+    margin: 0 0 20px;
+}
+
+/* Top column */
+.topcolumn {
+    overflow: hidden;
+}
+
+/* 预告片部分 */
+#movieVideo,
+#movieVideo .preview video {
+    width: 100%;
+    border-radius: 8px;
+}
+#movieVideo .preview {
+    max-width:800px;
+    margin:0 auto;
+}
+/* End Top column */
+
+/* Left column */
+.leftcolumn {
+    float: left;
+    width: 70%;
+}
+
+/* 热门影片部分 */
+#hotMovie {
+    overflow: hidden;
+}
+
+/* 侧边菜单栏 */
+#hotMovie .leftmenu {
+    float: left;
+    width: 100px;
+    margin-right: 20px;
+}
+
+.navlist ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.navlist ul li {
+    margin: 4px;
+    border-radius: 8px;
+    font-size: 15px;
+    line-height: 30px;
+    padding: 0px 16px;
+    cursor: pointer;
+    transition: 0.1s;
+}
+
+.navlist ul li:hover,
+.col_focus {
+    background-color: #1ab6ef87;
+    color: #fff;
+}
+
+.navlist ul li:active {
+    background: #d7d9dbcd;
+    color: #60666b;
+}
+
+/* 影片 */
+.movies {
+    overflow: hidden;
+    /* BFC */
+}
+
+.movies>.item {
+    display: none;
+}
+
+.movies>.show {
+    display: block;
+}
+
+.movies .item ul {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+/* 与即将上线部分共有的样式 */
+.item li {
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.item .pic {
+    width: 115px;
+    height: 150px;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.item .pic img {
+    width: 100%;
+    height: 100%;
+}
+
+.item .title {
+    width: 110px;
+    margin: 4px 0 0;
+    white-space: nowrap;
+    /* 防止文字换行 */
+    overflow: hidden;
+    /* 隐藏超出容器部分的内容 */
+    text-overflow: ellipsis;
+    /* 在超出部分显示省略号作为提示 */
+}
+
+.item .title a {
+    font-size: 13px;
+    color: #031c30;
+}
+
+.item .title a:hover {
+    color: #0099cc;
+}
+
+.item .title a:active {
+    color: #031c30;
+}
+
+.score span {
+    color: #e09015;
+    font-size: 13px;
+}
+
+.no_score span {
+    color: #061d3484;
+    font-size: 12px;
+}
+
+/* End 热门影片部分 */
+
+/* 即将上线部分 分页功能 */
+#paging {
+    overflow: hidden;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+}
+
+.pagination button {
+    width: 24px;
+    height: 24px;
+    background-color: rgba(255, 255, 255, 0.75);
+    font-size: 12px;
+    margin: 0 4px;
+    border: 1px solid #e3e5e7b0;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.1s;
+}
+
+.pagination button.active,
+.pagination button.active:hover,
+.pagination button:focus {
+    background-color: #00aeec;
+    color: white;
+}
+
+.pagination button:hover {
+    background-color: #e3e5e7;
+}
+
+.vault {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+/* 热门影评部分 */
+#reviews {
+    overflow: hidden;
+}
+
+#reviews a {
+    color: #021223da;
+}
+
+#reviews a:hover {
+    color: #72acd1;
+}
+
+#reviews_main {
+    padding: 0 20px;
+}
+
+.review {
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #e4e4e5b3;
+}
+
+.review_img {
+    float: left;
+    width: 60px;
+    margin: 8px 10px 0 0;
+}
+
+.review_img img {
+    width: 60px;
+}
+
+.review_container a {
+    font-size: 14px;
+}
+
+.review_container .information {
+    padding: 3px 0;
+    font-size: 11px;
+    font-weight: 550;
+}
+
+.review_container .information a{
+    font-size: 11px;
+}
+
+.review_container .information span {
+    color: #949698;
+}
+
+#reviews .last {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+/* End Left column */
+
+/* Right column */
+.rightcolumn {
+    float: right;
+    width: 25%;
+}
+
+/* 冷门好片部分 */
+.unpopMovie {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* 电影卡片 */
+.movieCard {
+    position: relative;
+    width: 150px;
+    height: 200px;
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+.movieCard .poster::before {
+    content: '';
+    position: absolute;
+    bottom: -50px;
+    width: 100%;
+    height: 60%;
+    transition: 0.2s;
+    z-index: 1;
+}
+
+.unpopMovie a:nth-child(1) .poster::before {
+    background: linear-gradient(to top, #2e82c3 30%, transparent);
+}
+
+.unpopMovie a:nth-child(2) .poster::before {
+    background: linear-gradient(to top, #ae4620 30%, transparent);
+}
+
+.unpopMovie a:nth-child(3) .poster::before {
+    background: linear-gradient(to top, #bbac25 30%, transparent);
+}
+
+.movieCard:hover .poster::before {
+    bottom: 0;
+}
+
+.movieCard .poster img {
+    width: 100%;
+    height: 200px;
+    transition: 0.15s;
+}
+
+.movieCard:hover .poster img {
+    transform: translateY(-30px);
+    filter: blur(2px);
+}
+
+.movieCard .details {
+    position: absolute;
+    top: 155px;
+    left: 0;
+    width: 100%;
+    padding: 0 15px 5px;
+    z-index: 1;
+}
+
+.movieCard:hover .details {
+    top: auto;
+    bottom: 0;
+}
+
+.movieCard .details h4 {
+    line-height: 18px;
+    white-space: nowrap;
+    /* 防止文字换行 */
+    overflow: hidden;
+    /* 隐藏超出容器部分的内容 */
+    text-overflow: ellipsis;
+    /* 在超出部分显示省略号作为提示 */
+    color: #fff;
+}
+
+.movieCard .details .types {
+    margin: 5px 0;
+    font-size: 12px;
+}
+
+.movieCard .details .types span {
+    padding: 2px 5px;
+    color: #fff;
+    border-radius: 4px;
+}
+
+.unpopMovie a:nth-child(1) .details .types span,
+.unpopMovie a:nth-child(2) .details .types span {
+    background: #56c224;
+}
+
+.unpopMovie a:nth-child(3) .details .types span {
+    background: #0293fb;
+}
+
+.movieCard .details .introduce {
+    color: #fff;
+    font-size: 12px;
+}
+
+/* End Right column */
+/* End 主体部分 */
+
+/* 响应式布局 */
+/* 屏幕小于900px，左右栏目变成上下分布，右栏目变成按行排列 */
+@media screen and (max-width: 900px) {
+
+    .leftcolumn,
+    .rightcolumn {
+        width: 100%;
+    }
+
+    .unpopMovie {
+        flex-direction: row;
+        justify-content: space-around;
+    }
+}
+@media screen and (min-width: 1500px) {
+    #movieVideo .preview {
+        max-width:1000px;
+    }
+    .leftcolumn {
+        width:75%;
+    }
+}

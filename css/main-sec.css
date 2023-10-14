@@ -1,0 +1,24 @@
+/* 卡片化样式设计，增加每个模块的区分度 */
+.card {
+  padding: 20px;
+  margin: 0 0 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.card::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #ccccff11;
+  background: radial-gradient(ellipse at center, #5fbdf795, transparent 60%); /* 径向渐变 */
+  background: -webkit-radial-gradient(ellipse at center, #5fbdf795, transparent 60%); /* Chrome, Safari,Opera */
+  background: -moz-radial-gradient(ellipse at center, #5fbdf795, transparent 60%); /* Firefox */
+  background: -o-radial-gradient(ellipse at center, #5fbdf795, transparent 60%); /* Opera */
+  background: -ms-radial-gradient(ellipse at center, #5fbdf795, transparent 60%); /* IE 10+ */
+  filter: blur(160px); /* 模糊滤镜 */
+  z-index: -1;
+}
